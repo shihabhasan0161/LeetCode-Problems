@@ -1,1 +1,1 @@
-Here, I will share tips and solutions for the leetcode problems which I will personally solve. Most of these solutions are based on my personal experiences, if you have a better solution or approach of the problems, please feel free to submit.
+In this space, I will share tips and solutions to LeetCode problems that I have personally solved. These solutions are based on my own experiences. If you have alternative solutions or better approaches to these problems, I encourage you to share them. Collaboration and learning from others are always welcome!
