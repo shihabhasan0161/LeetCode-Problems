@@ -1,0 +1,71 @@
+## Problem Understanding 🤔
+
+Given a string s and an integer k, we need to determine if we can construct exactly k palindrome strings using all characters from s. Each character must be used exactly once.
+
+## Key Insights 💡
+
+- Characters with even frequency can always be split into palindromes
+- Characters with odd frequency must be at the center of palindromes
+- The number of characters with odd frequency determines the minimum number of palindromes possible
+
+## Solution Approach 🎯
+
+The approach can be broken down into these simple steps:
+
+1. First, check if length of string is less than k 
+    - If true, return false (can't make more palindromes than available characters)
+2. If length equals k 
+    - Return true (we can split into single character palindromes)
+3. Count frequency of each character 
+    - Use an array of size 26 for lowercase letters
+    - Increment count for each character occurrence
+4. Count characters with odd frequencies 
+    - Use % 2 to check if frequency is odd
+    - Keep running sum of odd frequency counts
+5. Final check: 
+    - oddCount ≤ k ≤ s.length()
+
+## Why This Works? 🧐
+
+The logic behind this solution:
+
+- We need at least as many palindromes as odd-frequency characters (each must be center of a palindrome)
+- We can't create more palindromes than the string length
+- Even-frequency characters can be freely distributed to form palindromes
+
+## Time & Space Complexity ⚡
+
+Time Complexity: O(n) where n is the length of string s
+
+Space Complexity: O(1) as we use fixed size array of 26 characters
+
+## Code Implementation 💻
+
+class Solution {
+    public boolean canConstruct(String s, int k) {
+        if(s.length() < k) {
+            return false;
+        }
+        if(s.length() == k) {
+            return true;
+        }
+        
+        int[] freq = new int[26];
+        for(int i = 0; i < s.length(); i++) {
+            freq[s.charAt(i) - 'a']++;
+        }
+        
+        int oddCount = 0;
+        for(int frequency : freq) {
+            oddCount += frequency % 2;
+        }
+        
+        return oddCount <= k && k <= s.length();
+    }
+}
+
+## Pro Tips 🌟
+
+- Always handle edge cases first (length < k and length == k)
+- Use frequency array for character counting - it's faster than HashMap for known character set
+- Remember that even-frequency characters are flexible in palindrome formation
