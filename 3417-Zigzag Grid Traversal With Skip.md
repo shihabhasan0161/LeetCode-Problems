@@ -8,7 +8,7 @@ Given an m x n 2D array of positive integers, we need to:
 - Skip alternate cells during traversal
 - Return an array containing the visited cell values in order
 
-## Key Points 👨‍💻
+## Key Points 💡
 
 - Start from top-left cell (0,0)
 - Move right in first row, then left in second row (zigzag pattern)
